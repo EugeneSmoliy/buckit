@@ -30,5 +30,4 @@ public class Category {
 
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
-
 }

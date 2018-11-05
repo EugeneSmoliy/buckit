@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Donate</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    body {
+  background-image: linear-gradient(to bottom, #ff7200,  #f6c61e);
+  background-repeat: no-repeat;
+  background-color: #f6c61e;
+}
+
+.margin {
+  margin-top: 15%;
+
+}
+.donate-h1 {
+  color: #fff;
+  font: 24px Calibri, sans-serif;
+}
+
+.donatepic {
+   border-radius: 50%;
+  -border-radius: 50%;
+  width: 40%;
+  margin: 15% auto;
+  display: block;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0px;
+  background: transparent;
+}
+.btn-donate {
+  margin: 20% auto 0;
+  display: block;
+}  a {
+      color: orange !important;
+   }
+input[type = "search"] {
+    font-size: 20px !important;
+}
+
+</style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   <div class = "container">
+      <h1 class = "donate-h1 text-center margin">Hey you, office plankton! How about giving some petscare?</h1>
+      <img th:src="@{/images/111.png}" alt = "" class = "donatepic text-center">
+      <a href = "https://biggggidea.com/project/pet-care/#"><button class = "btn btn-success btn-large btn-donate">DONATE 2$!</button></a>
+   </div>
+<footer class = "footer"></footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

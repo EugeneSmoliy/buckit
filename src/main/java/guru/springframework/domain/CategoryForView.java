@@ -1,16 +1,13 @@
 package guru.springframework.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-@Builder
-public class ItemForView {
-	private Long id;
-	private String name;
+public class CategoryForView {
 	private String description;
-	private Long category;
-	private String photo;
+	private Boolean checked;
 }

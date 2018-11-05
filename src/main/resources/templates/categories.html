@@ -11,14 +11,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="../static/css/welcome.css" th:href="@{/css/welcome.css}" rel="stylesheet"/>
-    <style>
-        .big-logo {
-            display: block;
-            width: 70%;
-            margin: 15% auto 30%;
-        }
-    </style>
+<style>
+    input[type="submit"] {
+        width: 150px;
+        height: 45px;
+        background: orange;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        -webkit: border-radius: 5px;
+        margin-top: 20px;
 
+    }
+    .li-cat {
+        border-bottom: 1px solid #ccc;
+        line-height: 2;
+    }
+    input[type="checkbox"] {
+        background: #24fb64;
+    }
+    li {list-style-type: none;}
+    .mt {
+        margin-top: 30px;
+        margin-left: -30px;
+    }
+
+</style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,27 +45,20 @@
     <![endif]-->
 </head>
 <body>
-
-<div class="wrapper">
-
-    <div class="content text-center">
-        <img src="images/big-logo-buckit.png" class="big-logo">
-        <p class="text-center text-welcome">Ready for<br><span class = "challenge">challenge</p>
-        <div class="container">
-            <a href="user/1/categories">
-                <button class="text-center btn btn-orange col-xs-12">YES</button>
-            </a>
-            <br>
-            <br>
-            <a href="start.html">
-                <button class="text-center btn btn-orange col-xs-12">no, accept boring life</button>
-            </a>
-
-        </div>
-
+<form th:action='@{/user/1/items}' method="GET">
+    <input type="search" class="form-control search-text" value="Category" name="catsearch"/>
+    <div class="container mt">
+        <ul>
+            <li th:each="category : ${categories}" class = "li-cat">
+                <label th:text="${category.getDescription()}"/>
+                <input type="checkbox" th:name="idChecked" th:value="${category.id}" class="pull-right form-check-input"/>
+            </li>
+        </ul>
+        <input type="submit" value="Next  >" class = "submit-orange pull-right">
     </div>
-    <footer class="footer"></footer>
+</form>
 </div>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

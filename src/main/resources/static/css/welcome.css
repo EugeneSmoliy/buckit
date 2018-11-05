@@ -3,20 +3,54 @@
 }
 
 .big-logo {
-	display: block;
-	width: 50%;
-	margin: 15% auto 30%;
+    display: block;
+    width: 50%;
+    margin: 15% auto 30%;
 }
 
 .text-welcome {
-	color: #f6c61e;
-	font: 20px OpenSans, sans-serif;
-	margin-bottom: 10%;
+    color: #f6c61e;
+    font: 20px OpenSans, sans-serif;
+    margin-bottom: 10%;
 }
 
 .btn-orange {
-	color: #fff;
-	background-image: linear-gradient(to left, #f6cd21,  #ff7200);
+    color: #fff;
+    background-image: linear-gradient(to left, #f6cd21, #ff7200);
 }
 
+input[type="submit"] {
+    width: 150px;
+    height: 45px;
+    background: orange;
+    color: #fff;
+}
 
+input[type = "search"] {
+    background-image: linear-gradient(to left, #f6cd21, #ff7200);
+    color: #fff;
+    height: 50px;
+}
+
+.btn-category {
+    width: 30%;
+    font-size: 24px;
+    background: transparent;
+    border: 1px solid #000;
+}
+
+.photo-item {
+    width: 100%;
+    height: 200px;
+}
+
+.submit-orange {
+    width: 150px;
+    height: 45px;
+    background: orange;
+    color: #fff;
+}
+
+.challenge {
+    font-weight: 900;
+}

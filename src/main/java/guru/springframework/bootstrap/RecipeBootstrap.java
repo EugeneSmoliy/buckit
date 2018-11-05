@@ -44,7 +44,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 	@Override
 	@Transactional
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		recipeRepository.saveAll(getRecipes());
+//		recipeRepository.saveAll(getRecipes());
 		Category travel = Category.builder().description("Travel").build();
 		Category extreme = Category.builder().description("Extreme").build();
 		Category social = Category.builder().description("Social").build();
@@ -68,7 +68,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 						"/croissants_Paris" +
 						".png").build(),
 				Item.builder().name("Ride an elephant in Thailand").category(travel).icon("/images/Travel/riding_elephant.png").build(),
-				Item.builder().name("Experience the Northern Lights in Island").category(travel).icon("/images/Travel/Northern_Lights.png").build(),
+				Item.builder().name("Experience the Northern Lights in Iceland").category(travel).icon("/images" +
+						"/Travel/Northern_Lights.png").build(),
 				Item.builder().name("Visit pyramids in Egypt").category(travel).icon("/images/Travel/piramides.png").build(),
 				Item.builder().name("Climb the ancient Mayan ruins").category(travel).icon("/images/Travel/maya.png").build(),
 				Item.builder().name("Explore Tokyo during Cherry Blossom season").category(travel).icon("/images/Travel/cherry_tokio.png").build(),
@@ -91,16 +92,19 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 				// Item.builder().name("Kick yourself").category(simple).icon("/images/sunrise.png").build(),
 				// Business
 				Item.builder().name("Become a mentor").category(business).icon("/images/Business/mentor.png").build(),
-				Item.builder().name("Rock on the hackathon").category(business).icon("/images/Business/hakathon.png").build(),
-				Item.builder().name("Pop up a start-up").category(business).icon("/images/Business/startup.png").build(),
 				Item.builder().name("Fuck up like the first time").category(business).icon("/images/Business/money.png").build(),
+				Item.builder().name("Rock on the hackathon").category(business).icon("/images/Business/hakathon.jpg").build(),
+				Item.builder().name("Pop up a start-up").category(business).icon("/images/Business/startup.png").build(),
+				Item.builder().name("Launch online resource in 48 hours").category(business).icon("/images/Business/in48h.png").build(),
 				// Social
 				Item.builder().name("Meet the sunrise with your friends").category(social).icon("/images/Social" +
 						"/sunrise.png").build(),
 				Item.builder().name("Tell the story of your undivided love on a speed date").category(social).icon("/images/Social/speed_dating.png").build(),
 				Item.builder().name("Marry your beloved one").category(social).icon("/images/Social/marriege.png").build(),
 				Item.builder().name("Divorce why suffer").category(social).icon("/images/Social/divorce.png").build(),
-				Item.builder().name("Leave your favourite book on a book crossing").category(social).icon("/images/Social/book_crosing.png").build()
+				Item.builder().name("Leave your favourite book on a book crossing").category(social).icon("/images" +
+						"/Social/book_crosing.png").build(),
+				Item.builder().name("Pet care").icon("/images/everest.png").build()
 		));
 
 		categoryRepository.saveAll(categories);

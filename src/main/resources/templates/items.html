@@ -10,6 +10,77 @@
           th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <style>
+        .bx-wrapper {
+            width: 120% !important;
+            margin: 0 auto;
+        }
+        .td {
+            padding-top: 10%;
+        }
+        .photo-item {
+            width: 100%;
+            height: auto;
+
+        }
+        table {
+            margin: 10px auto;
+        }
+        .phone-link {
+            font-size: 40px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        td {
+            margin-top: 5%;
+        }
+        .bx-viewport {
+            -webkit-transform: translatez(0);
+            height: 110px !important;
+        }
+        .btn-category {
+            width: 30%;
+            font-size: 39px;
+            background: transparent;
+            border: 1px solid #000;
+            height: 110px !important;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        input[type = "checkbox"] {
+            background: transparent;
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+        }
+        .pseudo-checkbox {
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            background: orange;
+            margin-top: -50px;
+            margin-left: 5px;
+
+        }
+
+        .done {
+            margin-left: 50px;
+            font-size: 18px;
+        }
+
+        a {
+            color: orange !important;
+        }
+
+        input[type = "search"] {
+            color: orange;
+            font: 40px Calibri, sans-serif !important;
+            height: 80px;
+        }
+
+    </style>
+
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>  -->
 
@@ -43,12 +114,16 @@
 
                     $scope.sort = function (value) {
                         $scope.filters.category = value;
-                    }
+                    };
 
                     $scope.addNewUser = function (userDetails) {
                         $scope.message = userDetails.name + "(" + userDetails.email + ")  (" + userDetails.agreed + ")";
-                    }
+                    };
                     $scope.message = "Ready";
+
+                    $scope.ckeckbox  = function() {
+                        input[type = "checkbox"] = name;
+                    };
 
 
                 }
@@ -59,7 +134,7 @@
 <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sx-12 col-sx-offset-12 col-sm-12 col-md-offset-12">
+        <div class="">
             <form>
                 <input type="hidden" th:field="*{id}"/>
                 <div class="pannel-group">
@@ -72,20 +147,20 @@
                                 <div class="form-group">
                                     <!--    <label>Recipe Description:</label>  -->
                                     <!--    <input type="text" class="form-control" th:field="*{name}"/>  -->
-                                    <input type="search" class="form-control search-text"
+                                    <div class = "container"><input type="search" class="form-control search-text"
                                            value="Search of inspiration" name="search"/>
-                                    <input type="Submit" class="pull-right sub"/>
+                                    <input type="Submit" class="pull-right sub" value = ""/></div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-9 form-group">
+                                <div class="form-group">
                                     <!--<button type = "button" class = "btn btn-category ">Travel</button>
                                     <button type = "button" class = "btn btn-category">Adventure</button>
                                     <button type = "button" class = "btn btn-category">Food</button>  -->
 
                                     <div class="bxslider">
                                         <tr th:each="category : ${categories}">
-                                            <button th:attr="ng-click='sort(\''+${category.getDescription()}+'\');'"
+                                            <button th:attr="ng-click='sort(\''+${category.getId()}+'\');'"
                                                     type="button" class="btn btn-category "
                                                     th:text="${category.getDescription()}">
                                             </button>
@@ -95,11 +170,13 @@
                                 </div>
                                 <br><br>
                                 <div class="row">
-                                    <table>
+                                    <table class = "container">
                                         <tr ng-repeat="product in products | filter : filters">
-                                            <td><a href="#" class="phone-link">{{product.name}}</a></td>
-                                            <td><img src='{{product.photo}}' class="photo-item"></td>
-                                            <td>{{product.price | currency}}</td>
+                                            <td class = "td"><a href='item/{{product.id}}' class="phone-link">{{product.name}}</a>
+                                            <img src='{{product.photo}}' class="photo-item">
+                                                <div class = "wrapper-checkbox pull-right">
+                                                    <input type = "checkbox" class = "item-checkbox">
+                                                    <div class = "pseudo-checkbox"></div></div></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -116,7 +193,7 @@
     $('.bxslider').bxSlider({
         minSlides: 1,
         maxSlides: 3,
-        slideWidth: 150,
+        slideWidth: 220,
         slideMargin: 10
     });
 </script>
